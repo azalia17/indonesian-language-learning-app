@@ -27,3 +27,13 @@ const Color kFontSelect = Color(0xFF696969);
 const Color kSelect = Color(0xFFF2F3F3);
 const Color kBgSelect = Color(0xFFE7E7E7);
 
+
+const Color kProfileGradientYellow1 = Color(0xFFFEDC46);
+const Color kProfileGradientYellow2 = Color(0xFFFEF18F);
+const Color kProfileGradientYellow3 = Color(0xFFFEF8B0);
+const Color kProfileGradientYellow4 = Color(0xFFFEFCCB);
+const Color kProfileFont = Color(0xFF29293E);
+
+const Color kSelectedFont = Color(0xFF3865A7);
+
+

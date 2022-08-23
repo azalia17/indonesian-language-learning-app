@@ -2,44 +2,42 @@ import 'package:animated_button/animated_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
+import 'package:language_app/model/topic_vocab_model.dart';
+import 'package:language_app/screen/detail_vocabulary_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class TopicWidget extends StatefulWidget {
-  const TopicWidget({Key? key}) : super(key: key);
+class TopicWidget extends StatelessWidget {
+  final TopicVocab topic;
 
-  @override
-  State<TopicWidget> createState() => _TopicWidgetState();
-}
-
-class _TopicWidgetState extends State<TopicWidget> {
-  bool unlocked = true;
+  const TopicWidget({Key? key, required this.topic}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
 
-    if (unlocked == true) {
-      return UnlockedTopic();
+    if (topic.availability == true) {
+      return UnlockedTopic(topic: topic,);
     } else {
-      return LockedTopic();
+      return LockedTopic(topic: topic,);
     }
   }
 }
 
 class UnlockedTopic extends StatelessWidget {
-  const UnlockedTopic({Key? key}) : super(key: key);
+  final TopicVocab topic;
+
+  const UnlockedTopic({Key? key, required this.topic}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: screenWidth,
-      // padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 5),
       // child: Expanded(
       child: AnimatedButton(
         onPressed: () {
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => DetailVocabularyScreen(word: topic.words)));
         },
         width: screenWidth - 40,
         height: 60,
@@ -47,12 +45,12 @@ class UnlockedTopic extends StatelessWidget {
         shadowDegree: ShadowDegree.dark,
         enabled: true,
         child: Container(
-          padding: EdgeInsets.fromLTRB(15, 10, 15, 12),
+          padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Icon(
-                Icons.family_restroom,
+                topic.icon,
                 color: kPercentageTopic1,
                 size: 23,
                 semanticLabel: 'Family',
@@ -75,7 +73,7 @@ class UnlockedTopic extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: Text(
-                      'Anggota Keluarga',
+                      topic.name,
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.black87,
@@ -91,16 +89,17 @@ class UnlockedTopic extends StatelessWidget {
                       animation: false,
                       lineHeight: 5.0,
                       animationDuration: 2000,
-                      percent: 0.8,
+                      percent: topic.progress / 100,
                       // center: Text("90.0%"),
-                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      barRadius: Radius.circular(5.0),
+                      // linearStrokeCap: LinearStrokeCap.roundAll,
                       progressColor: kPercentageTopic1,
                       backgroundColor: kFullPercentageTopic1,
-                      trailing: const Text(
-                        "80%",
+                      trailing: Text(
+                        topic.progress.toString(),
                         style: TextStyle(
                           fontSize: 10,
-                          fontFamily: 'Popppins',
+                          fontFamily: 'Poppins',
                           color: kPercentageTopic1,
                         ),
                       ),
@@ -111,7 +110,7 @@ class UnlockedTopic extends StatelessWidget {
               Icon(Icons.play_arrow,
                 color: Colors.black87,
                 size: 15,
-                semanticLabel: 'Star',),
+                semanticLabel: 'Arrow',),
             ],
           ),
         ),
@@ -122,12 +121,15 @@ class UnlockedTopic extends StatelessWidget {
 }
 
 class LockedTopic extends StatelessWidget {
-  const LockedTopic({Key? key}) : super(key: key);
+  final TopicVocab topic;
+
+  const LockedTopic({Key? key, required this.topic}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
       width: screenWidth,
       // padding: EdgeInsets.symmetric(horizontal: 20),
       // child: Expanded(
@@ -150,10 +152,10 @@ class LockedTopic extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.fastfood,
+              Icon(topic.icon,
                 color: Colors.black26,
                 size: 23,
-                semanticLabel: 'Family',),
+                semanticLabel: topic.name,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -161,7 +163,7 @@ class LockedTopic extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: Text(
-                      'Makanan',
+                      topic.name,
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.black26,
@@ -179,14 +181,15 @@ class LockedTopic extends StatelessWidget {
                       animationDuration: 0,
                       percent: 0.0,
                       // center: Text("90.0%"),
-                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      // linearStrokeCap: LinearStrokeCap.roundAll,
+                      barRadius: Radius.circular(5.0),
                       progressColor: kPercentageTopic1,
                       backgroundColor: Colors.black12,
                       trailing: const Text(
                         "0%",
                         style: TextStyle(
                           fontSize: 10,
-                          fontFamily: 'Popppins',
+                          fontFamily: 'Poppins',
                           color: Colors.black26,
                         ),
                       ),
@@ -197,7 +200,7 @@ class LockedTopic extends StatelessWidget {
               Icon(Icons.lock,
                 color: Colors.black26,
                 size: 15,
-                semanticLabel: 'Star',),
+                semanticLabel: 'Lock',),
             ],
           ),
         ),

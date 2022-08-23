@@ -1,6 +1,9 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
+import 'package:language_app/screen/vocabulary_screen.dart';
+
+import '../screen/vocabulary_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({Key? key}) : super(key: key);
@@ -23,8 +26,8 @@ class CategoryWidget extends StatelessWidget {
                 children: [
                   AnimatedButton(
                     onPressed: () {
-                      // Navigator.of(context)
-                      //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => VocabularyScreen()));
                     },
                     width: halfScreenWidth - 25,
                     height: 180,
@@ -47,7 +50,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/vocab.png'),
+                                Image.asset('assets/images/categoryVocab.png'),
                                 Text(
                                   'Kosa Kata',
                                   style: TextStyle(
@@ -92,7 +95,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/speaking.png'),
+                                Image.asset('assets/images/categorySpeaking.png'),
                                 Text(
                                   'Berbicara',
                                   style: TextStyle(
@@ -141,7 +144,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/grammar.png'),
+                                Image.asset('assets/images/categoryGrammar.png'),
                                 Text(
                                   'Tata Bahasa',
                                   style: TextStyle(
@@ -186,7 +189,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/listening.png'),
+                                Image.asset('assets/images/categoryListening.png'),
                                 Text(
                                   'Mendengarkan',
                                   style: TextStyle(
@@ -238,7 +241,7 @@ class CategoryWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset('assets/images/test.png'),
+                        Image.asset('assets/images/categoryTest.png'),
                         Text(
                           'Uji Dirimu!',
                           style: TextStyle(
@@ -255,7 +258,11 @@ class CategoryWidget extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: 30,
+          ),
+
         ],
       ),
     );

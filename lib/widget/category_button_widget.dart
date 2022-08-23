@@ -37,7 +37,7 @@ class CategoryButtonWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/vocab.png'),
+                  Image.asset('assets/images/categoryVocab.png'),
                   Text(
                     'Kosa Kata',
                     style: TextStyle(

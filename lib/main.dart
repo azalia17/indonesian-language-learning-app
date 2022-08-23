@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Basa',
       theme: ThemeData(primarySwatch: Colors.blue,),
       home: MainScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

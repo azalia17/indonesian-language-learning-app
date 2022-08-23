@@ -9,19 +9,16 @@ class TitleWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      // padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Container(
-        width: screenWidth,
-        child: Text(
+      width: screenWidth,
+      child: Text(
           title,
           style: const TextStyle(
             fontSize: 24,
             fontFamily: 'Poppins',
             fontWeight: FontWeight.bold,
-
+            // height: 3
           ),
         ),
-      )
     );
   }
 }
