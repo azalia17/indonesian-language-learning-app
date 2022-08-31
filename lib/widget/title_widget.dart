@@ -16,7 +16,6 @@ class TitleWidget extends StatelessWidget {
             fontSize: 24,
             fontFamily: 'Poppins',
             fontWeight: FontWeight.bold,
-            // height: 3
           ),
         ),
     );

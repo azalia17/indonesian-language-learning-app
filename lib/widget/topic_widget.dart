@@ -1,9 +1,8 @@
 import 'package:animated_button/animated_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/model/topic_vocab_model.dart';
-import 'package:language_app/screen/detail_vocabulary_screen.dart';
+import 'package:language_app/screen/vocabulary_detail_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class TopicWidget extends StatelessWidget {
@@ -37,7 +36,7 @@ class UnlockedTopic extends StatelessWidget {
       child: AnimatedButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => DetailVocabularyScreen(word: topic.words)));
+              .push(MaterialPageRoute(builder: (context) => VocabularyDetailScreen(vocab: topic,)));
         },
         width: screenWidth - 40,
         height: 60,
@@ -55,20 +54,8 @@ class UnlockedTopic extends StatelessWidget {
                 size: 23,
                 semanticLabel: 'Family',
               ),
-/*
-              Container(
-                width: 23,
-                height: 23,
-                child: Expanded(
-                  child: Image.asset(
-                    'assets/images/family.png',
-                  ),
-                ),
-              ),
-*/
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 10),
@@ -90,9 +77,7 @@ class UnlockedTopic extends StatelessWidget {
                       lineHeight: 5.0,
                       animationDuration: 2000,
                       percent: topic.progress / 100,
-                      // center: Text("90.0%"),
                       barRadius: Radius.circular(5.0),
-                      // linearStrokeCap: LinearStrokeCap.roundAll,
                       progressColor: kPercentageTopic1,
                       backgroundColor: kFullPercentageTopic1,
                       trailing: Text(
@@ -107,10 +92,12 @@ class UnlockedTopic extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.play_arrow,
+              Icon(
+                Icons.play_arrow,
                 color: Colors.black87,
                 size: 15,
-                semanticLabel: 'Arrow',),
+                semanticLabel: 'Arrow',
+              ),
             ],
           ),
         ),
@@ -131,22 +118,14 @@ class LockedTopic extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5),
       width: screenWidth,
-      // padding: EdgeInsets.symmetric(horizontal: 20),
-      // child: Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          // enabledMouseCursor: false,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
           side: BorderSide(width: 1.5, color: Colors.black12),
         ),
         onPressed: null,
-        // width: screenWidth - 40,
-        // height: 60,
-        // color: kBgButtonTopic1,
-        // shadowDegree: ShadowDegree.dark,
-        // enabled: true,
         child: Container(
           padding: EdgeInsets.fromLTRB(0, 10, 0, 12),
           child: Row(
@@ -158,7 +137,6 @@ class LockedTopic extends StatelessWidget {
                 semanticLabel: topic.name,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 10),
@@ -180,8 +158,6 @@ class LockedTopic extends StatelessWidget {
                       lineHeight: 5.0,
                       animationDuration: 0,
                       percent: 0.0,
-                      // center: Text("90.0%"),
-                      // linearStrokeCap: LinearStrokeCap.roundAll,
                       barRadius: Radius.circular(5.0),
                       progressColor: kPercentageTopic1,
                       backgroundColor: Colors.black12,
@@ -197,15 +173,16 @@ class LockedTopic extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.lock,
+              Icon(
+                Icons.lock,
                 color: Colors.black26,
                 size: 15,
-                semanticLabel: 'Lock',),
+                semanticLabel: 'Lock',
+              ),
             ],
           ),
         ),
       ),
-      // ),
     );
   }
 }

@@ -22,6 +22,11 @@ const Color kFontTest = Color(0xFF3865A7);
 const Color kButtonSkip = Color(0xFFFFD79C);
 const Color kBgButtonSkip = Color(0xFFD0A86B);
 const Color kFontButtonSkip = Color(0xFFAC8955);
+const Color kBgSummary = Color(0xFFEAEEF3);
+const Color kSummaryPercentage = Color(0xFF284F7E);
+const Color kSummaryFullPercentage = Color(0xFFAEC5E0);
+const Color kFontSummary = Color(0xFF8C949E);
+
 
 const Color kFontSelect = Color(0xFF696969);
 const Color kSelect = Color(0xFFF2F3F3);

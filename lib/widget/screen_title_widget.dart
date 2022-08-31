@@ -6,18 +6,13 @@ class ScreenTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.bold,
-            color: Colors.black45
-          ),
-        ),
+    return Text(
+      title,
+      style: const TextStyle(
+        fontSize: 16,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.bold,
+        color: Colors.black54
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/screen/vocabulary_screen.dart';
 
+import '../screen/under_construction_screen.dart';
 import '../screen/vocabulary_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -13,17 +14,14 @@ class CategoryWidget extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double halfScreenWidth = screenWidth / 2;
     return Container(
-      // padding: EdgeInsets.fromLTRB(20, 15, 5, 0),
-      // alignment: ,
-      // width: double.infinity,
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  /*** KOSA KATA Button ***/
                   AnimatedButton(
                     onPressed: () {
                       Navigator.of(context)
@@ -63,16 +61,17 @@ class CategoryWidget extends StatelessWidget {
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
                   ),
                   SizedBox(height: 10,),
+
+                  /*** BERBICARA Button ***/
                   AnimatedButton(
                     onPressed: () {
-                      // Navigator.of(context)
-                      //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => UnderConstructionScreen(title: 'Berbicara')));
                     },
                     width: halfScreenWidth - 25,
                     height: 160,
@@ -108,7 +107,6 @@ class CategoryWidget extends StatelessWidget {
                               ],
                             ),
                           ),
-
                         ],
                       ),
                     ),
@@ -116,12 +114,12 @@ class CategoryWidget extends StatelessWidget {
                 ],
               ),
               Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  /*** TATA BAHASA Button ***/
                   AnimatedButton(
                     onPressed: () {
-                      // Navigator.of(context)
-                      //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => UnderConstructionScreen(title: 'Tata Bahasa')));
                     },
                     width: halfScreenWidth - 25,
                     height: 150,
@@ -163,10 +161,12 @@ class CategoryWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10,),
+
+                  /*** MENDENGARKAN Button ***/
                   AnimatedButton(
                     onPressed: () {
-                      // Navigator.of(context)
-                      //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) => UnderConstructionScreen(title: 'Mendengarkan',)));
                     },
                     width: halfScreenWidth - 25,
                     height: 190,
@@ -211,14 +211,15 @@ class CategoryWidget extends StatelessWidget {
               ),
             ],
           ),
-          /*** QUESTION MARK BUTTON ***/
           SizedBox(
             height: 10,
           ),
+
+          /*** QUESTION MARK BUTTON ***/
           AnimatedButton(
             onPressed: () {
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => UnderConstructionScreen(title: 'Uji Dirimu!')));
             },
             width: screenWidth - 40,
             height: 120,
@@ -254,7 +255,6 @@ class CategoryWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -262,7 +262,6 @@ class CategoryWidget extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-
         ],
       ),
     );
