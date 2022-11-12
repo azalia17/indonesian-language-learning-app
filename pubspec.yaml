@@ -6,7 +6,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+
 
 dependencies:
   flutter:
@@ -14,6 +15,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   percent_indicator: ^4.2.2
   animated_button: ^0.2.0
+  get: ^3.24.0
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
+  badges: ^2.0.0-nullsafety.1
+#  websafe_svg: ^1.1.4
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +30,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/folklore/
+    - assets/icons/
+
   fonts:
     - family: Poppins
       fonts:
@@ -33,3 +42,6 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
+    - family: Javanese
+      fonts:
+        - asset: assets/fonts/Javanese-Text.ttf

@@ -1,12 +1,14 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/model/topic_vocab_model.dart';
-import 'package:language_app/screen/vocabulary_test_screen.dart';
+import 'package:language_app/screen/quiz_screen.dart';
 import 'package:language_app/widget/screen_title_widget.dart';
 import 'package:language_app/widget/title_widget.dart';
 import 'package:language_app/widget/word_widget.dart';
 
+import '../controller/question_controller.dart';
 import '../widget/summary_vocab_widget.dart';
 
 class VocabularyDetailScreen extends StatelessWidget {
@@ -15,13 +17,15 @@ class VocabularyDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _controller = Get.put(QuestionController());
+
     return Scaffold(
       appBar: AppBar(
         title: ScreenTitleWidget(title: 'Anggota Keluarga',),
         iconTheme: IconThemeData(
           color: Colors.black45, //change your color here
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         toolbarHeight: 75,
@@ -48,7 +52,6 @@ class VocabularyDetailScreen extends StatelessWidget {
                       }
                   ),
                 ),
-
               ],
             ),
           ),
@@ -59,7 +62,10 @@ class VocabularyDetailScreen extends StatelessWidget {
         child: AnimatedButton(
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => VocabularyTestScreen(vocab: vocab,)));
+                // .push(MaterialPageRoute(builder: (context) => VocabularyTestScreen(vocab: vocab,)));
+                .push(MaterialPageRoute(builder: (context) => QuizScreen()));
+
+            _controller.startQuiz();
           },
           height: 55,
           width: MediaQuery.of(context).size.width - 40,

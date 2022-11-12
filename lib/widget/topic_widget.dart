@@ -39,7 +39,7 @@ class UnlockedTopic extends StatelessWidget {
               .push(MaterialPageRoute(builder: (context) => VocabularyDetailScreen(vocab: topic,)));
         },
         width: screenWidth - 40,
-        height: 60,
+        height: 62,
         color: kBgButtonTopic1,
         shadowDegree: ShadowDegree.dark,
         enabled: true,

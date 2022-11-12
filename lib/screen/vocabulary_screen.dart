@@ -16,7 +16,7 @@ class VocabularyScreen extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Colors.black45, //change your color here
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         toolbarHeight: 75,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/model/topic_vocab_model.dart';
@@ -13,7 +12,7 @@ class SummaryVocabWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 5),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Column(
             children: [
@@ -32,7 +31,7 @@ class SummaryVocabWidget extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: Colors.black45,
-                  fontSize: 16,
+                  fontSize: 12,
                   height: 0.5
                 ),
               )
@@ -40,7 +39,7 @@ class SummaryVocabWidget extends StatelessWidget {
           ),
           Container(
             height: 100,
-            padding: EdgeInsets.fromLTRB(20, 0, 25, 0),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: kBgSummary,
