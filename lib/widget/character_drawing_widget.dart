@@ -19,8 +19,8 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, right: 20),
-      child: Column(
+      child: Stack(
+        alignment: AlignmentDirectional.topEnd,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Card(
@@ -62,7 +62,7 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
               child: CustomPaint(
                 painter: _DrawingPainter(drawingPoints),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.45,
                   width: MediaQuery.of(context).size.width - 40,
                 ),
                 size: Size(MediaQuery.of(context).size.height * 0.5,MediaQuery.of(context).size.width - 40),
@@ -72,7 +72,15 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
           ),
           InkWell(
             onTap: () => setState(() => drawingPoints = []),
-            child: Text('clear'),
+            child: Container(
+              padding: EdgeInsets.all(2.0),
+              margin: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.black12
+              ),
+              child: Icon( Icons.close, color: Colors.black38,)
+            ),
           )
         ],
       ),

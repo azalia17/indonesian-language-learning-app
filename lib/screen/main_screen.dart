@@ -65,8 +65,9 @@ class _MainScreenState extends State<MainScreen> {
                   icon: LineIcons.home,
                   text: 'Beranda',
                   textStyle: TextStyle(
-                    fontFamily: 'Montserrat',
-                    color: kFontTest
+                    fontFamily: 'Poppins',
+                    color: kFontTest,
+                    fontWeight: FontWeight.bold
                   ),
                 ),
                 GButton(
@@ -91,6 +92,11 @@ class _MainScreenState extends State<MainScreen> {
                   iconSize: 24,
                   icon: LineIcons.book,
                   text: 'Cerita Rakyat',
+                  textStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: kCategoryBackground1,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 GButton(
                   iconActiveColor: Colors.amber[600]!,
@@ -100,6 +106,11 @@ class _MainScreenState extends State<MainScreen> {
                   iconSize: 24,
                   icon: LineIcons.user,
                   text: 'Profile',
+                  textStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: Colors.amber[600]!,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ],
               selectedIndex: selectedIndex,

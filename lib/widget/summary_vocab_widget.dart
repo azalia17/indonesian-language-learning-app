@@ -1,11 +1,45 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/model/topic_vocab_model.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'dart:convert';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+
 
 class SummaryVocabWidget extends StatelessWidget {
-  final TopicVocab vocab;
-  const SummaryVocabWidget({Key? key, required this.vocab}) : super(key: key);
+  final String id;
+  const SummaryVocabWidget({Key key,  this.id}) : super(key: key);
+
+  Future<List> getData() async {
+    final Map<String, String> _queryParameters = <String, String>{
+      'id': '${id}',
+    };
+    var url = Uri.https("azaliacollege.000webhostapp.com", "getVocabSummary.php", _queryParameters);
+    final response = await http.get(url);
+    return json.decode(response.body);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List>(
+      future: getData(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) print(snapshot.error);
+        else print(snapshot.data);
+
+        return snapshot.hasData ? SummaryList(list: snapshot.data,) : Center(child: CircularProgressIndicator(),);
+      },
+    );
+  }
+}
+
+class SummaryList extends StatelessWidget {
+  final List list;
+
+  const SummaryList({Key key, this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +51,22 @@ class SummaryVocabWidget extends StatelessWidget {
           Column(
             children: [
               Text(
-                vocab.words.length.toString(),
+                list[0]['COUNT(id)'].toString(),
                 style: TextStyle(
-                  fontSize: 64,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold,
-                  height: 1,
-                  color: kSummaryPercentage
+                    fontSize: 64,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                    color: kSummaryPercentage
                 ),
               ),
               Text(
                 'Total Kata',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: Colors.black45,
-                  fontSize: 12,
-                  height: 0.5
+                    fontFamily: 'Poppins',
+                    color: Colors.black45,
+                    fontSize: 12,
+                    height: 0.5
                 ),
               )
             ],
@@ -50,7 +84,7 @@ class SummaryVocabWidget extends StatelessWidget {
                 CircularPercentIndicator(
                   radius: 35.0,
                   lineWidth: 16.0,
-                  percent: vocab.progress / 100,
+                  percent: 70 / 100,
                   progressColor: kSummaryPercentage,
                   backgroundColor: kSummaryFullPercentage,
                 ),
@@ -62,11 +96,11 @@ class SummaryVocabWidget extends StatelessWidget {
                     Text(
                       '2',
                       style: TextStyle(
-                        fontSize: 48,
-                        color: kSummaryPercentage,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Poppins',
-                        height: 0
+                          fontSize: 48,
+                          color: kSummaryPercentage,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                          height: 0
                       ),
                     ),
                     Text(
@@ -95,3 +129,4 @@ class SummaryVocabWidget extends StatelessWidget {
     );
   }
 }
+

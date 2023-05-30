@@ -1,6 +1,7 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
+import 'package:language_app/screen/speaking_screen.dart';
 import 'package:language_app/screen/vocabulary_screen.dart';
 
 import '../screen/under_construction_screen.dart';
@@ -71,7 +72,7 @@ class CategoryWidget extends StatelessWidget {
                   AnimatedButton(
                     onPressed: () {
                       Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) => UnderConstructionScreen(title: 'Berbicara')));
+                          .push(MaterialPageRoute(builder: (context) => SpeakingScreen(title: 'Berbicara')));
                     },
                     width: halfScreenWidth - 25,
                     height: 160,

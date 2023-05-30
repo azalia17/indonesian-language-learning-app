@@ -30,9 +30,7 @@ class CharactersDetailScreen extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            // mainAxisAlignment: MainAxisAlignment.,
             children: [
               Text(
                 aksaraData.javanese,
@@ -58,8 +56,8 @@ class CharactersDetailScreen extends StatelessWidget {
                 height: 18,
               ),
               Text(
-                'aksara ini biasanya digunakan untuk skdhjds nsfhsjd hjfdk ',
-                // textAlign: TextAlign.center,
+                'aksara ini biasanya digunakan untuk skdhjds nsfhsjd hjfdk fdsfsdfsd',
+                textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 16,
@@ -74,7 +72,7 @@ class CharactersDetailScreen extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 20.0),
         child: AnimatedButton(
           onPressed: () {
-            Get.to(CharactersDrawingScreen());
+            Get.to(CharactersDrawingScreen(aksaraData: aksaraData,));
           },
           height: 50,
           width: MediaQuery.of(context).size.width - 40,
