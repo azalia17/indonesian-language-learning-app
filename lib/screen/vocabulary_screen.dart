@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +15,7 @@ import '../extentions.dart';
 
 class VocabularyScreen extends StatelessWidget {
 
-  const VocabularyScreen({Key key}) : super(key: key);
+  const VocabularyScreen({Key? key}) : super(key: key);
 
 
   @override
@@ -56,7 +54,7 @@ class TopicList extends StatelessWidget {
   final String title;
   final int id;
   // final List<TopicVocab> topic;
-  const TopicList({Key key, this.title, this.id}) : super(key: key);
+  const TopicList({Key? key, required this.title, required this.id}) : super(key: key);
 
   Future<List> getData() async {
     final Map<String, String> _queryParameters = <String, String>{
@@ -91,15 +89,15 @@ class TopicList extends StatelessWidget {
 }
 
 class ItemList extends StatelessWidget {
-  final List list;
-  const ItemList({Key key, this.list}) : super(key: key);
+  final List? list;
+  const ItemList({Key? key, this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      height: list.length * 75.0,
+      height: list!.length * 75.0,
       child: ListView.builder(
         padding: EdgeInsets.symmetric(vertical: 5),
         physics: NeverScrollableScrollPhysics(),
@@ -107,7 +105,7 @@ class ItemList extends StatelessWidget {
           // TopicVocab topicList = topic[index];
           // return TopicWidget(topic: topicList,);
 
-          if (list[index]['availability'] ==  0) {
+          if (list?[index]['availability'] ==  0) {
             return Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               width: screenWidth,
@@ -136,7 +134,7 @@ class ItemList extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Text(
-                              list[index]['name'],
+                              list?[index]['name'],
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.black26,
@@ -187,7 +185,7 @@ class ItemList extends StatelessWidget {
               // child: Expanded(
               child: AnimatedButton(
                 onPressed: () {
-                  Get.to(VocabularyDetailScreen(id: list[index]['id'],));
+                  Get.to(VocabularyDetailScreen(id: list?[index]['id'],));
                   // Navigator.of(context).push(MaterialPageRoute(builder: (context) => VocabularyDetailScreen(vocab: topic,)));
                 },
                 width: screenWidth - 40,
@@ -213,7 +211,7 @@ class ItemList extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Text(
-                              list[index]['name'],
+                              list?[index]['name'],
                               // topic.name,
                               style: TextStyle(
                                 fontSize: 14,
@@ -235,7 +233,7 @@ class ItemList extends StatelessWidget {
                               progressColor: kPercentageTopic1,
                               backgroundColor: kFullPercentageTopic1,
                               trailing: Text(
-                                list[index]['progress'],
+                                list?[index]['progress'],
                                 style: TextStyle(
                                   fontSize: 10,
                                   fontFamily: 'Poppins',
@@ -260,7 +258,7 @@ class ItemList extends StatelessWidget {
             );
           }
         },
-        itemCount: list.length,
+        itemCount: list?.length,
       ),
     );
   }

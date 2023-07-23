@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:flutter/material.dart';
 import 'package:language_app/constant/colors.dart';
@@ -11,7 +10,7 @@ import 'package:http/http.dart' as http;
 
 class SummaryVocabWidget extends StatelessWidget {
   final String id;
-  const SummaryVocabWidget({Key key,  this.id}) : super(key: key);
+  const SummaryVocabWidget({Key? key, required this.id}) : super(key: key);
 
   Future<List> getData() async {
     final Map<String, String> _queryParameters = <String, String>{
@@ -37,9 +36,9 @@ class SummaryVocabWidget extends StatelessWidget {
 }
 
 class SummaryList extends StatelessWidget {
-  final List list;
+  final List? list;
 
-  const SummaryList({Key key, this.list}) : super(key: key);
+  const SummaryList({Key? key, this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +50,7 @@ class SummaryList extends StatelessWidget {
           Column(
             children: [
               Text(
-                list[0]['COUNT(id)'].toString(),
+                list![0]['COUNT(id)'].toString(),
                 style: TextStyle(
                     fontSize: 64,
                     fontFamily: 'Poppins',

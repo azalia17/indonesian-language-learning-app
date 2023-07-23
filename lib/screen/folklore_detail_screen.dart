@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class FolkloreDetailsScreen extends StatefulWidget {
   final String id;
   final String title, bgStoryColor;
 
-  const FolkloreDetailsScreen({Key key, this.id, this.title, this.bgStoryColor}) : super(key: key);
+  const FolkloreDetailsScreen({Key? key, required this.id, required this.title, required this.bgStoryColor}) : super(key: key);
 
 
   @override
@@ -98,7 +97,7 @@ class _FolkloreDetailsScreenState extends State<FolkloreDetailsScreen> {
 
 class ItemList extends StatelessWidget {
   final List list;
-  const ItemList({Key key, this.list}) : super(key: key);
+  const ItemList({Key? key, required this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -268,9 +267,9 @@ class ItemList extends StatelessWidget {
 
 
 class StoryList extends StatefulWidget {
-  final List list;
+  final List? list;
 
-  const StoryList({Key key, this.list}) : super(key: key);
+  const StoryList({Key? key, required this.list}) : super(key: key);
 
   @override
   State<StoryList> createState() => _StoryListState();
@@ -290,7 +289,7 @@ class _StoryListState extends State<StoryList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.list.length * 136.0,
+      height: widget.list!.length * 136.0,
       child: ListView.builder(
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
@@ -330,7 +329,7 @@ class _StoryListState extends State<StoryList> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  widget.list[index]['javanese'],
+                                  widget.list?[index]['javanese'],
                                   // lines.javanese,
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
@@ -403,7 +402,7 @@ class _StoryListState extends State<StoryList> {
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      widget.list[index]['characters'],
+                                      widget.list?[index]['characters'],
                                       // lines.javanese,
                                       textAlign: TextAlign.justify,
                                       style: TextStyle(
@@ -464,7 +463,7 @@ class _StoryListState extends State<StoryList> {
             )
           );
         },
-        itemCount: widget.list.length,
+        itemCount: widget.list?.length,
       ),
     );
   }

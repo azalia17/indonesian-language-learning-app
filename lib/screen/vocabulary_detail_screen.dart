@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +17,10 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 
 class VocabularyDetailScreen extends StatelessWidget {
-  final String title;
+  final String? title;
   final String id;
 
-  const VocabularyDetailScreen({Key key,  this.id, this.title}) : super(key: key);
+  const VocabularyDetailScreen({Key? key, required this.id, this.title}) : super(key: key);
 
   Future<List> getData() async {
     final Map<String, String> _queryParameters = <String, String>{
@@ -103,14 +102,14 @@ class VocabularyDetailScreen extends StatelessWidget {
 }
 
 class WordList extends StatelessWidget {
-  final List list;
+  final List? list;
 
-  const WordList({Key key, this.list}) : super(key: key);
+  const WordList({Key? key, required this.list}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: list.length * 82.0,
+        height: list!.length * 82.0,
         child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               return ListView.builder(
@@ -134,7 +133,7 @@ class WordList extends StatelessWidget {
                       child: Row(
                         children: [
                           Image.network(
-                            list[index]['image'],
+                            list?[index]['image'],
                             height: 50,
                           ),
                           SizedBox(width: 10.0,),
@@ -143,7 +142,7 @@ class WordList extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                list[index]['indonesian'],
+                                list?[index]['indonesian'],
                                 // word.indonesian,
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
@@ -153,7 +152,7 @@ class WordList extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                list[index]['translation'],
+                                list?[index]['translation'],
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontSize: 16,
@@ -167,7 +166,7 @@ class WordList extends StatelessWidget {
                     ),
                   );
                 },
-                itemCount: list.length,
+                itemCount: list?.length,
               );
             }
         ));

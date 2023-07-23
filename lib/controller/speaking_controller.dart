@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'package:get/get.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -8,7 +7,7 @@ class SpeakingController extends GetxController {
   // that change wil be automatically reflected on all places where it's being used. It's like listening to a stream.
   var isListening = false.obs;
   var speechText = 'Tekan mic dan mulai berbicara'.obs;
-  SpeechToText speechToText;
+  late SpeechToText speechToText;
 
   @override
   void onInit() {

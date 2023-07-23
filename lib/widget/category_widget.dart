@@ -1,5 +1,8 @@
+// import 'dart:html';
+
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:language_app/constant/colors.dart';
 import 'package:language_app/screen/speaking_screen.dart';
 import 'package:language_app/screen/vocabulary_screen.dart';
@@ -49,7 +52,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/categoryVocab.png'),
+                                SvgPicture.asset('assets/images/homeCategory/categoryVocab.svg'),
                                 Text(
                                   'Kosa Kata',
                                   style: TextStyle(
@@ -95,7 +98,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/categorySpeaking.png'),
+                                SvgPicture.asset('assets/images/homeCategory/categorySpeaking.svg'),
                                 Text(
                                   'Berbicara',
                                   style: TextStyle(
@@ -143,7 +146,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/categoryGrammar.png'),
+                                SvgPicture.asset('assets/images/homeCategory/categoryGrammar.svg'),
                                 Text(
                                   'Tata Bahasa',
                                   style: TextStyle(
@@ -190,7 +193,7 @@ class CategoryWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset('assets/images/categoryListening.png'),
+                                SvgPicture.asset('assets/images/homeCategory/categoryListening.svg'),
                                 Text(
                                   'Mendengarkan',
                                   style: TextStyle(
@@ -243,7 +246,7 @@ class CategoryWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset('assets/images/categoryTest.png'),
+                        SvgPicture.asset('assets/images/homeCategory/categoryTest.svg'),
                         Text(
                           'Uji Dirimu!',
                           style: TextStyle(

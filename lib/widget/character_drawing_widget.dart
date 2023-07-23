@@ -1,18 +1,17 @@
-// @dart=2.9
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CharacterDrawingWidget extends StatefulWidget {
-  const CharacterDrawingWidget({Key key}) : super(key: key);
+  const CharacterDrawingWidget({Key? key}) : super(key: key);
 
   @override
   State<CharacterDrawingWidget> createState() => _CharacterDrawingWidgetState();
 }
 
 class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
-  List<DrawingPoint> drawingPoints = [];
+  List<DrawingPoint>? drawingPoints = [];
   Color selectedColor = Colors.black87;
   double strokeWidth = 5;
 
@@ -28,7 +27,7 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
             child: GestureDetector(
               onPanStart: (details) {
                 setState(() {
-                  drawingPoints.add(
+                  drawingPoints?.add(
                       DrawingPoint(
                           details.localPosition,
                           Paint()
@@ -42,7 +41,7 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
               },
               onPanUpdate: (details) {
                 setState(() {
-                  drawingPoints.add(
+                  drawingPoints?.add(
                       DrawingPoint(
                           details.localPosition,
                           Paint()
@@ -56,11 +55,11 @@ class _CharacterDrawingWidgetState extends State<CharacterDrawingWidget> {
               },
               onPanEnd: (details) {
                 setState(() {
-                  drawingPoints.add(null);
+                  drawingPoints?.add(null!);
                 });
               },
               child: CustomPaint(
-                painter: _DrawingPainter(drawingPoints),
+                painter: _DrawingPainter(drawingPoints!),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.45,
                   width: MediaQuery.of(context).size.width - 40,

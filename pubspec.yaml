@@ -6,7 +6,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 
 dependencies:
@@ -23,6 +23,7 @@ dependencies:
   speech_to_text: ^6.1.0
   avatar_glow: ^2.0.1
   http: ^0.13.5
+#  flutter_svg: ^2.0.7
 #  websafe_svg: ^1.1.4
 
 dev_dependencies:
@@ -36,6 +37,7 @@ flutter:
     - assets/images/
     - assets/images/folklore/
     - assets/images/characters/
+    - assets/images/homeCategory/
     - assets/icons/
 #    - https://azaliacollege.000webhostapp.com/assets/folklore/
 #    - https://azaliacollege.000webhostapp.com/assets/

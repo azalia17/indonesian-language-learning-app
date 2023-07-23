@@ -1,4 +1,3 @@
-// @dart=2.9
 
 import 'dart:convert';
 
@@ -16,7 +15,7 @@ import '../widget/screen_title_widget.dart';
 import 'folklore_detail_screen.dart';
 
 class FolkloreScreen extends StatelessWidget {
-  const FolkloreScreen({Key key}) : super(key: key);
+  const FolkloreScreen({Key? key}) : super(key: key);
 
   Future<List> getData() async {
     var url = Uri.https("azaliacollege.000webhostapp.com", "getFolkloreData.php");
@@ -80,8 +79,8 @@ class FolkloreScreen extends StatelessWidget {
 
 
 class itemList extends StatelessWidget {
-  final List list;
-  const itemList({Key key, this.list}) : super(key: key);
+  final List? list;
+  const itemList({Key? key, required this.list}) : super(key: key);
 
 
   @override
@@ -90,7 +89,7 @@ class itemList extends StatelessWidget {
 
     return Container(
         child: SizedBox(
-          height: list.length * 140.0,
+          height: list!.length * 140.0,
           child: ListView.builder(
             padding: EdgeInsets.symmetric(vertical: 5),
             physics: NeverScrollableScrollPhysics(),
@@ -102,13 +101,13 @@ class itemList extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 10),
                 child: AnimatedButton(
                   onPressed: () {
-                    Get.to(FolkloreDetailsScreen(id: list[index]['id'], title: list[index]['title'], bgStoryColor: list[index]['bg_story_color'],));
+                    Get.to(FolkloreDetailsScreen(id: list?[index]['id'], title: list?[index]['title'], bgStoryColor: list?[index]['bg_story_color'],));
                     // Navigator.of(context)
                     //     .push(MaterialPageRoute(builder: (context) => AnotherPage()));
                   },
                   width: screenWidth - 40,
                   height: 130,
-                  color: list[index]['bg_color'].toString().toColor(),
+                  color: list?[index]['bg_color'].toString().toColor(),
                   shadowDegree: ShadowDegree.light,
                   // color: kCategoryBackground3,
                   enabled: true,
@@ -119,7 +118,7 @@ class itemList extends StatelessWidget {
                             top: 0,
                             right: 8,
                             width: 100,
-                            child: Image.network(list[index]['image'],)
+                            child: Image.network(list?[index]['image'],)
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 15, bottom: 10),
@@ -129,7 +128,7 @@ class itemList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                list[index]['title'].toString().replaceAll('\\n', '\n'),
+                                list![index]['title'].toString().replaceAll('\\n', '\n'),
                                 style: TextStyle(
                                   fontSize: 28.0,
                                   fontFamily: 'Poppins',
@@ -140,7 +139,7 @@ class itemList extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                list[index]['character_title'],
+                                list?[index]['character_title'],
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   fontFamily: 'Javanese',
@@ -159,7 +158,7 @@ class itemList extends StatelessWidget {
                 ),
               );
             },
-            itemCount: list.length,
+            itemCount: list?.length,
           ),
         )
     );

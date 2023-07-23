@@ -16,7 +16,7 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
   late PageController _pageController;
   PageController get pageController => this._pageController;
   
-  List<Question> _question = vocab_family_question
+  final List<Question> _question = vocab_family_question
       .map((question) => Question(
         question['id'],
         question['answer_option'],
